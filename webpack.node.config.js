@@ -2,6 +2,7 @@ var fs = require('fs')
 var path = require('path')
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
+var ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 module.exports = {
 
@@ -38,6 +39,7 @@ module.exports = {
   },
 
   plugins: [
+      new ProgressBarPlugin(),
       new webpack.DefinePlugin({
             'process.env': {
                 ENV: JSON.stringify('production'),

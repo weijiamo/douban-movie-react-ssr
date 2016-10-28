@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="https://img3.doubanio.com/favicon.ico" type="image/x-icon">
     <title>douban-movie-react-ssr</title>
-    <link rel="stylesheet" href="/main.css"></link>
+    <link rel="stylesheet" href="/static/main.css"></link>
 </head>
 <body>
     <div id="app"><%- html %></div>
     <script>
         window.__initState__ = <%- reduxState %>
     </script>
-    <script src="/vendor.bundle.js"></script>
-    <script src="/main.bundle.js"></script>
+    <script src="/static/vendor.bundle.js"></script>
+    <script src="/static/main.bundle.js"></script>
         
 </body>
 </html>

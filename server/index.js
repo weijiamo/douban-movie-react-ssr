@@ -8,11 +8,12 @@ const app = express();
 
 app.set('view engine', 'ejs');
 
-app.use(express.static(path.join(__dirname, '../dist')));
+// app.use('/static', express.static(path.join(__dirname, '../dist')));
 
 app.set('views', path.join(__dirname, '../src'));
 
 app.use('/api', api);
+
 
 app.use('*', serverRender);
 

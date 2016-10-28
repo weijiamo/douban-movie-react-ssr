@@ -11,6 +11,7 @@ const middleware = [
     !__NODE__ && createLogger(),
 ].filter(Boolean);
 
+
 export default function configureStore(initialState) {
     const store = createStore(
         rootReducer,

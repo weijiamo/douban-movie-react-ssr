@@ -25,6 +25,7 @@ serverRender.route('*')
         const history = createMemoryHistory();
         const store = configureStore();
         const routes = crateRoutes(history);
+        console.log(req.originalUrl);
 
         match({ routes, location: req.originalUrl }, (error, redirectLocation, renderProps) => {
             if (redirectLocation) {

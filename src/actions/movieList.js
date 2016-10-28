@@ -12,10 +12,17 @@ function fetchMovieList() {
 
 export function loadMovieList() {
     return (dispatch, getState) => {
+        // const { receivedAt } = getState().movieList;
+        // if (receivedAt && (Date.now() - receivedAt) < 600000) {
+        //     return null;
+        // }
+        return dispatch(fetchMovieList())
+    };
+}
+
+export function loading() {
+    return (dispatch, getState) => {
         const { receivedAt } = getState().movieList;
-        if (receivedAt && (Date.now() - receivedAt) < 600000) {
-            return null;
-        }
         return dispatch(fetchMovieList())
     };
 }

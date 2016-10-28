@@ -17,6 +17,20 @@ class Home extends React.PureComponent {
 
     constructor(props) {
         super(props);
+        this.handleTouchEnd = this.handleTouchEnd.bind(this)
+    }
+
+    handleTouchEnd(e) {
+        // console.log('handleTouchEnd', e.deltaMode)
+        // console.log('handleTouchEnd', e.deltaX)
+        // console.log('handleTouchEnd', e.deltaY)
+        // console.log('handleTouchEnd', e.deltaZ)
+        var t = document.documentElement.scrollTop || document.body.scrollTop;  //离上方的距离
+        var h =window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight; //可见宽度
+        if( t >= document.documentElement.scrollHeight -h ) {
+            console.log("goooo!");
+            Home.loadData.call(this);
+        }
     }
 
     componentWillMount() {
@@ -35,10 +49,11 @@ class Home extends React.PureComponent {
                 <h1>douban movies top50 with React server side rendering</h1>
                 {isLoading && Loading()}
                 {!isLoading && 
-                <ol className="grid_view">
+                <ol className="grid_view" ref="home-list" onWheel={this.handleTouchEnd}>
                     {movieList}
                 </ol> 
                 }
+                {isLoading && Loading()}
             </div>
         );
     }
