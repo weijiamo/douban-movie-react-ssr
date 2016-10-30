@@ -5,6 +5,7 @@ const nodeConfig = require('./webpack.node.config')
 const express = require('express');
 const pm2 = require('pm2');
 const requestProxy = require('express-request-proxy');
+const path = require('path');
 
 const clientCompiler = webpack(clientConfig);
 const serverCompiler = webpack(nodeConfig);
@@ -34,7 +35,7 @@ pm2.connect(true, function(err) {
 });
 
 var app = new WebpackDevServer(clientCompiler, {
-    contentBase: './dist',
+    contentBase: path.join(__dirname, './dist'),
     publicPath: '/static/',
     // proxy: {'/static': `http://localhost:${8889}/static`},
     proxy: {

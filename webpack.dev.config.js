@@ -36,7 +36,7 @@ module.exports = {
     // },
 
     output: {
-        path: '/',
+        path: '/',//path.join(__dirname, './dist'),
         filename: '/[name].bundle.js',
         publicPath: '/static/',
         chunkFilename: '/[name].js'

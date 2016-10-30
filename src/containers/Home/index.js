@@ -34,7 +34,7 @@ class Home extends React.PureComponent {
     }
 
     componentWillMount() {
-        Home.loadData.call(this);
+        // Home.loadData.call(this);
     }
 
     render() {

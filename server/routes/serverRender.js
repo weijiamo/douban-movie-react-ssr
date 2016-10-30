@@ -42,6 +42,7 @@ serverRender.route('*')
                             {<RouterContext {...renderProps} />}
                         </Provider>
                     );
+                    console.log('html', html);
 
                     res.render('index.ejs', { html, reduxState });
                 }).catch(e => {
